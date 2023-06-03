@@ -28,7 +28,7 @@ st.set_page_config(page_title='Prueba Instagram', page_icon=':chess_pawn:', layo
 
 st.title(f'''Prueba Instagram''')
 
-min_topic_size = st.radio('Mínimo tamaño de Topic', tuple(min_topic_sizes))
+min_topic_size = min_topic_sizes[0]# = st.radio('Mínimo tamaño de Topic', tuple(min_topic_sizes))
 
 topics_over_time_df = pd.read_csv(f'''{directory}/topics_over_time_{min_topic_size}.csv''')
 hierarchical_topics_df = pd.read_csv(f'''{directory}/hierarchical_topics_{min_topic_size}.csv''')
@@ -485,7 +485,7 @@ with tab6:
         fig.update_layout(template='simple_white', title={'text': "<b>", 'x': 0.5, 'xanchor': 'center', 'yanchor': 'top', 'font': dict(size=22, color='Black')})
         fig.update_xaxes(visible=False)
         fig.update_yaxes(visible=False)
-        fig.update_layout(width=WIDTH, height=HEIGHT * 1.5)
+        fig.update_layout(width=WIDTH * 1.5, height=HEIGHT * 1.5)
 
         selected_points = plotly_events(fig, click_event=True, hover_event=False, override_width=f'''200%''', override_height=HEIGHT * 1.5)
 
